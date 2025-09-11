@@ -41,7 +41,8 @@ const WasteSlider: React.FC = () => {
   const [index, setIndex] = useState(0);
 
   // Show 1 card on mobile, 2 on tablet/desktop
-  const itemsPerPage = window.innerWidth < 640 ? 1 : 2;
+  // Show 1 card on mobile & tablet, 2 on desktop
+  const itemsPerPage = window.innerWidth < 1024 ? 1 : 2;
 
   const next = () =>
     setIndex((prev) => (prev + itemsPerPage) % wasteCategories.length);
@@ -75,21 +76,23 @@ const WasteSlider: React.FC = () => {
             exit={{ x: -300, opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {wasteCategories.slice(index, index + itemsPerPage).map((cat, i) => (
-              <div
-                key={i}
-                className="w-full sm:w-[40vw] lg:w-[20vw] h-auto sm:h-[20vw] rounded-2xl flex flex-col justify-center items-center shadow-md bg-white p-4 sm:p-6 text-center"
-              >
-                <img className="w-10 sm:w-12 pb-4" src={cat.img} alt="" />
-                <h1 className="font-semibold text-lg sm:text-xl lg:text-2xl">
-                  {cat.title}
-                </h1>
-                <p className="text-sm sm:text-base">{cat.desc}</p>
-                <p className={`mt-4 text-sm sm:text-base ${cat.color}`}>
-                  {cat.bin}
-                </p>
-              </div>
-            ))}
+            {wasteCategories
+              .slice(index, index + itemsPerPage)
+              .map((cat, i) => (
+                <div
+                  key={i}
+                  className="w-full sm:w-[40vw] lg:w-[20vw] h-auto sm:h-[20vw] rounded-2xl flex flex-col justify-center items-center shadow-md bg-white p-4 sm:p-6 text-center"
+                >
+                  <img className="w-10 sm:w-12 pb-4" src={cat.img} alt="" />
+                  <h1 className="font-semibold text-lg sm:text-xl lg:text-2xl">
+                    {cat.title}
+                  </h1>
+                  <p className="text-sm sm:text-base">{cat.desc}</p>
+                  <p className={`mt-4 text-sm sm:text-base ${cat.color}`}>
+                    {cat.bin}
+                  </p>
+                </div>
+              ))}
           </motion.div>
         </AnimatePresence>
       </div>

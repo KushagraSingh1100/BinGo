@@ -5,6 +5,7 @@
 :root {
   --font-sans: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --background: #FAF8F8;
+  --buttons: #E8E7E7;
   --foreground: hsl(0 0% 3.9%);
 }
 
@@ -26,6 +27,7 @@
 
 @theme inline {
   --color-background: var(--background);
+  --color-buttons: var(--buttons);
   --color-foreground: var(--foreground);
 }
 

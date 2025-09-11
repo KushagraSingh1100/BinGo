@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Upload } from "lucide-react"; // or any icon lib
+import { Upload } from "lucide-react";
 
 const DragDropUpload: React.FC = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -32,7 +32,7 @@ const DragDropUpload: React.FC = () => {
       className="flex flex-col items-center justify-center w-96 h-48 border-2 border-dashed border-gray-400 rounded-xl cursor-pointer bg-white hover:bg-gray-50 transition"
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
-      onClick={handleClick} // 👈 clicking the box opens explorer
+      onClick={handleClick}
     >
       <input
         type="file"

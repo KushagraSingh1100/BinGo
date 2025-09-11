@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,9 +31,9 @@ const Navbar: React.FC = () => {
           <li className="hover:underline underline-offset-4 cursor-pointer font-semibold">
             AI Classifier
           </li>
-          <li className="hover:underline underline-offset-4 cursor-pointer font-semibold">
+          <Link to="/report-page" className="hover:underline underline-offset-4 cursor-pointer font-semibold">
             Report
-          </li>
+          </Link>
           <li className="hover:underline underline-offset-4 cursor-pointer font-semibold">
             Leaderboard
           </li>
@@ -76,9 +77,12 @@ const Navbar: React.FC = () => {
             <li className="hover:underline underline-offset-4 cursor-pointer">
               AI Classifier
             </li>
-            <li className="hover:underline underline-offset-4 cursor-pointer">
+            <Link
+              to="/report-page"
+              className="hover:underline underline-offset-4 cursor-pointer"
+            >
               Report
-            </li>
+            </Link>
             <li className="hover:underline underline-offset-4 cursor-pointer">
               Leaderboard
             </li>

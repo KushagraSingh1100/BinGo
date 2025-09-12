@@ -1,7 +1,11 @@
 import React, { useState, useRef } from "react";
 import { Upload } from "lucide-react";
 
-const DragDropUpload: React.FC = () => {
+interface DragDropUploadProps {
+  onFileSelect: (file: File | null) => void;
+}
+
+const DragDropUpload: React.FC<DragDropUploadProps> = ({ onFileSelect }) => {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
@@ -12,6 +16,7 @@ const DragDropUpload: React.FC = () => {
       const uploadedFile = e.dataTransfer.files[0];
       setFile(uploadedFile);
       setPreview(URL.createObjectURL(uploadedFile));
+      onFileSelect(uploadedFile);
     }
   };
 
@@ -20,11 +25,12 @@ const DragDropUpload: React.FC = () => {
       const uploadedFile = e.target.files[0];
       setFile(uploadedFile);
       setPreview(URL.createObjectURL(uploadedFile));
+      onFileSelect(uploadedFile);
     }
   };
 
   const handleClick = () => {
-    fileInputRef.current?.click(); // open file explorer
+    fileInputRef.current?.click();
   };
 
   return (

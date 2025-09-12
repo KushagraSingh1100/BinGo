@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import DragDropUpload from "../components/DragDropUpload";
 import img from "../assets/homepage_img.png";
@@ -10,6 +10,7 @@ import star from "../assets/star.png";
 import WasteCarousel from "../components/WasteCarousel";
 
 const Home: React.FC = () => {
+  const [, setImage] = useState<File | null>(null);
   return (
     <>
       <Navbar />
@@ -73,7 +74,7 @@ const Home: React.FC = () => {
               <h1 className="font-medium text-xl sm:text-2xl">
                 Upload Waste Image
               </h1>
-              <DragDropUpload />
+              <DragDropUpload onFileSelect={setImage}/>
               <button className="w-full bg-green-700 text-white py-3 px-6 rounded-2xl cursor-pointer hover:bg-green-600/80">
                 Classify Waste
               </button>
@@ -149,7 +150,7 @@ const Home: React.FC = () => {
             Waste Categories
           </h1>
           <div className="w-[95%] sm:w-[90%] lg:w-[80%] mt-6">
-            <WasteCarousel />
+            <WasteCarousel/>
           </div>
         </div>
       </div>

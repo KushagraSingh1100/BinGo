@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   const [, setImage] = useState<File | null>(null);
   return (
     <>
-      <Navbar />
+      <Navbar current="Home"/>
       <div className="flex flex-col items-center bg-background">
         {/* HERO SECTION */}
         <div className="w-[90vw] lg:w-[80vw] min-h-[calc(100vh_-_104px)] flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-0">
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* AI CLASSIFICATION SECTION */}
-        <div className="flex flex-col items-center bg-background w-full pt-20 sm:pt-28">
+        <div className="flex flex-col items-center pb-4 bg-background w-full pt-20 sm:pt-28">
           <h1 className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-center">
             AI-Powered Waste Classification
           </h1>
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
           </h3>
           <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between px-4 sm:px-10 lg:px-50 w-full mt-10 gap-10 lg:gap-0">
             {/* UPLOAD CARD */}
-            <div className="w-full lg:w-[30vw] px-6 lg:px-10 flex flex-col items-center justify-center gap-5 h-auto lg:h-[25vw] rounded-2xl bg-white">
+            <div className="w-full shadow-xl lg:w-[30vw] px-6 lg:px-10 flex flex-col items-center justify-center gap-5 h-auto lg:h-[25vw] rounded-2xl bg-white">
               <h1 className="font-medium text-xl sm:text-2xl">
                 Upload Waste Image
               </h1>
@@ -81,7 +81,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* RESULT CARD */}
-            <div className="w-full lg:w-[30vw] flex flex-col items-start justify-start p-6 sm:p-10 gap-5 rounded-2xl bg-white">
+            <div className="w-full shadow-xl lg:w-[30vw] flex flex-col items-start justify-start p-6 sm:p-10 gap-5 rounded-2xl bg-white">
               <h1 className="font-medium text-xl sm:text-2xl">
                 Classification Result
               </h1>

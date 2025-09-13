@@ -3,7 +3,12 @@ import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router";
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  current: string;
+}
+
+const Navbar: React.FC<NavbarProps> = ({current}) => {
+  
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -22,19 +27,19 @@ const Navbar: React.FC = () => {
       {/* Desktop Menu */}
       <div className="hidden md:flex">
         <ul className="flex flex-row gap-6 lg:gap-8 text-sm lg:text-base">
-          <li className="underline underline-offset-4 cursor-pointer font-semibold">
+          <Link to="/" className={`${current==="Home"?"underline":""} underline-offset-4 hover:underline cursor-pointer font-semibold`}>
             Home
-          </li>
-          <li className="hover:underline underline-offset-4 cursor-pointer font-semibold">
+          </Link>
+          <li className={`${current==="Course"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
             Course
           </li>
-          <li className="hover:underline underline-offset-4 cursor-pointer font-semibold">
+          <li className={`${current==="AI Classifier"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
             AI Classifier
           </li>
-          <Link to="/report-page" className="hover:underline underline-offset-4 cursor-pointer font-semibold">
+          <Link to="/report-page" className={`${current==="Report"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
             Report
           </Link>
-          <li className="hover:underline underline-offset-4 cursor-pointer font-semibold">
+          <li className={`${current==="LeaderBoard"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
             Leaderboard
           </li>
         </ul>

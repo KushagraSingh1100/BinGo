@@ -7,7 +7,7 @@
 
 :root {
   --font-sans: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --background: oklch(1 0 0);
+  --background: #FAF8F8;
   --buttons: #E8E7E7;
   --foreground: oklch(0.145 0 0);
   --radius: 0.625rem;

@@ -41,7 +41,7 @@ const ReportPage: React.FC = () => {
     fd.append("evidence", evidence); // file goes here
 
     try {
-      const res = await fetch("http://localhost:8000/complaint", {
+      const res = await fetch("https://bingo-backend-b753.onrender.com/complaint", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${TOKEN}`,

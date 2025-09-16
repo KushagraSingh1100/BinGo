@@ -41,7 +41,7 @@ const ReportPage: React.FC = () => {
     fd.append("evidence", evidence); // file goes here
 
     try {
-      const res = await fetch("https://bingo-backend-b753.onrender.com/complaint", {
+      const res = await fetch("http://localhost:8000/complaint", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${TOKEN}`,
@@ -63,7 +63,7 @@ const ReportPage: React.FC = () => {
 
   return (
     <>
-    <Navbar current="Report"/>
+      <Navbar current="Report" />
       <div className="flex flex-col gap-3 bg-background items-center p-4 sm:p-6 md:p-8 lg:p-10">
         <h1 className="font-semibold text-3xl sm:text-4xl lg:text-5xl text-center">
           Report Environmental Issues

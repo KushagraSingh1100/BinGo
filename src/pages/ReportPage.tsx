@@ -65,7 +65,7 @@ const ReportPage: React.FC = () => {
     <>
       <Navbar current="Report" />
       <div className="flex flex-col gap-3 bg-background items-center p-4 sm:p-6 md:p-8 lg:p-10">
-        <h1 className="font-semibold text-3xl sm:text-4xl lg:text-5xl text-center">
+        <h1 className="font-semibold text-3xl sm:text-4xl lg:text-5xl text-center p-1 bg-gradient-to-r from-[#0A380C] to-[#00FF0B] bg-clip-text text-transparent">
           Report Environmental Issues
         </h1>
         <p className="text-sm sm:text-md text-center">

@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router";
-import userLogo from "../assets/user.png"
+import userLogo from "../assets/user.png";
+import coin from "../assets/coin.png";
 
 interface NavbarProps {
   current: string;
 }
 
-const Navbar: React.FC<NavbarProps> = ({current}) => {
-  
+const Navbar: React.FC<NavbarProps> = ({ current }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -28,19 +28,42 @@ const Navbar: React.FC<NavbarProps> = ({current}) => {
       {/* Desktop Menu */}
       <div className="hidden md:flex">
         <ul className="flex flex-row gap-6 lg:gap-8 text-sm lg:text-base">
-          <Link to="/" className={`${current==="Home"?"underline":""} underline-offset-4 hover:underline cursor-pointer font-semibold`}>
+          <Link
+            to="/"
+            className={`${
+              current === "Home" ? "underline" : ""
+            } underline-offset-4 hover:underline cursor-pointer font-semibold`}
+          >
             Home
           </Link>
-          <Link to="/courses" className={`${current==="Courses"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
+          <Link
+            to="/courses"
+            className={`${
+              current === "Courses" ? "underline" : ""
+            } hover:underline underline-offset-4 cursor-pointer font-semibold`}
+          >
             Courses
           </Link>
-          <li className={`${current==="AI Classifier"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
+          <li
+            className={`${
+              current === "AI Classifier" ? "underline" : ""
+            } hover:underline underline-offset-4 cursor-pointer font-semibold`}
+          >
             AI Classifier
           </li>
-          <Link to="/report-page" className={`${current==="Report"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
+          <Link
+            to="/report-page"
+            className={`${
+              current === "Report" ? "underline" : ""
+            } hover:underline underline-offset-4 cursor-pointer font-semibold`}
+          >
             Report
           </Link>
-          <li className={`${current==="LeaderBoard"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
+          <li
+            className={`${
+              current === "LeaderBoard" ? "underline" : ""
+            } hover:underline underline-offset-4 cursor-pointer font-semibold`}
+          >
             Leaderboard
           </li>
         </ul>
@@ -48,9 +71,13 @@ const Navbar: React.FC<NavbarProps> = ({current}) => {
 
       {/* Desktop Button */}
       <div className="hidden md:block">
-        <button className="bg-green-700 flex items-center gap-2 text-white py-2 px-4 lg:px-4 rounded-2xl cursor-pointer hover:bg-green-600/80 text-sm lg:text-base">
+        <button className="bg-green-700 flex items-center gap-4 text-white py-2 px-4 lg:px-4 rounded-2xl cursor-pointer hover:bg-green-600/80 text-sm lg:text-base">
           <img className="w-6 h-auto" src={userLogo} alt="" />
-            <p className="text-lg">Kushagra</p>
+          <p className="text-lg">Kushagra</p>
+          <div className="flex items-center gap-1">
+            <img className="w-6" src={coin} alt="" />
+            <p className="text-white">2000</p>
+          </div>
         </button>
       </div>
 
@@ -75,28 +102,54 @@ const Navbar: React.FC<NavbarProps> = ({current}) => {
       {isOpen && (
         <div className="absolute top-20 left-0 w-full bg-background border-t border-gray-300 flex flex-col items-center gap-4 py-6 shadow-md md:hidden">
           <ul className="flex flex-col gap-4 text-base font-semibold">
-            <Link to="/" className={`${current==="Home"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
+            <Link
+              to="/"
+              className={`${
+                current === "Home" ? "underline" : ""
+              } hover:underline underline-offset-4 cursor-pointer font-semibold`}
+            >
               Home
             </Link>
-            <Link to="/courses" className={`${current==="Courses"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
+            <Link
+              to="/courses"
+              className={`${
+                current === "Courses" ? "underline" : ""
+              } hover:underline underline-offset-4 cursor-pointer font-semibold`}
+            >
               Courses
             </Link>
-            <li className={`${current==="AI Classifier"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
+            <li
+              className={`${
+                current === "AI Classifier" ? "underline" : ""
+              } hover:underline underline-offset-4 cursor-pointer font-semibold`}
+            >
               AI Classifier
             </li>
             <Link
               to="/report-page"
-              className={`${current==="Report"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}
+              className={`${
+                current === "Report" ? "underline" : ""
+              } hover:underline underline-offset-4 cursor-pointer font-semibold`}
             >
               Report
             </Link>
-            <li className={`${current==="LeaderBoard"?"underline":""} hover:underline underline-offset-4 cursor-pointer font-semibold`}>
+            <li
+              className={`${
+                current === "LeaderBoard" ? "underline" : ""
+              } hover:underline underline-offset-4 cursor-pointer font-semibold`}
+            >
               Leaderboard
             </li>
           </ul>
-          <button className="bg-green-700 flex items-center gap-3 text-white py-2 px-6 rounded-2xl cursor-pointer hover:bg-green-600/80 mt-4">
+          <button className="bg-green-700 flex flex-col items-center gap-2 text-white py-2 px-6 rounded-2xl cursor-pointer hover:bg-green-600/80 mt-4">
+            <div className="flex items-center gap-4">
             <img className="w-5 h-auto" src={userLogo} alt="" />
             <p>Kushagra</p>
+            </div>
+            <div className="flex items-center gap-1">
+              <img className="w-6" src={coin} alt="" />
+              <p className="text-white">2000</p>
+            </div>
           </button>
         </div>
       )}

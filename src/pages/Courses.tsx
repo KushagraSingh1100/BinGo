@@ -32,7 +32,7 @@ const Courses: React.FC = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch("http://localhost:8000/courses/reward");
+        const response = await fetch("https://bingo-backend-b753.onrender.com/courses/reward");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -48,7 +48,8 @@ const Courses: React.FC = () => {
       }
     };
     fetchCourses();
-  }, [courses]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

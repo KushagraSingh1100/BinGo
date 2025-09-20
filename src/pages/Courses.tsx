@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import { ArrowDownWideNarrow, ArrowUp, ArrowUpWideNarrow, ChevronDown, LoaderPinwheel, SquareChevronRight } from "lucide-react";
+import { ArrowDownWideNarrow, ArrowUpWideNarrow, ChevronDown, LoaderPinwheel, SquareChevronRight } from "lucide-react";
 import { Input } from "../components/ui/input";
 import {
   DropdownMenu,
@@ -40,6 +40,7 @@ const Courses: React.FC = () => {
 
         setCourses(data.courses);
         console.log("courses:" + courses);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (err: any) {
         setError(err.message || "Failed to fetch courses");
       } finally {
